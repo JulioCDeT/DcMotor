@@ -29,9 +29,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>
  *      at the time of writing the code to handle these actuators.
  *
  *  Version:
- *      1.0.0
+ *      1.0.1
  *  Date:
- *      03/04/2019
+ *      07/04/2019
  */
 #pragma once
 
@@ -41,6 +41,7 @@ class DcMotor
     uint8_t m_pin1;
     uint8_t m_pin2;
     bool m_monoPin;
+    bool m_state;
 
   public:
     //Generate an instance of DcMotor class, for rotation control
@@ -66,6 +67,9 @@ class DcMotor
 
     //Stop the motor
     void turnOff();
+
+    //Return true if the Motor is working, else false
+    bool isWorking();
 };
 
 
@@ -75,10 +79,13 @@ class Tire : public DcMotor
     //Generate an instance of Tire class,
     //which inherits from DcMotor.
     Tire (uint8_t pin1, uint8_t pin2);
+
     //MoveForward the car, clockwise direction
     void moveForward();   
+
     //MoveForward the car, counterclockwise direction
     void moveBackward();
+
     //Destructor
     ~Tire() {}
 };

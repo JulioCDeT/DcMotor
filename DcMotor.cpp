@@ -28,6 +28,7 @@ DcMotor::DcMotor(uint8_t pin1, uint8_t pin2)
     pinMode(pin2, OUTPUT);
     digitalWrite(pin1, LOW);
     digitalWrite(pin2, LOW);
+    m_state = false;
 }
 
 //Generate an instance of DcMotor class, for simple turn on/off control.
@@ -36,6 +37,7 @@ DcMotor::DcMotor(uint8_t pin1)
 {
     pinMode(pin1, OUTPUT);
     digitalWrite(pin1, LOW);
+    m_state = false;
 }
 
 //Move the motor clockwise. 
@@ -46,6 +48,7 @@ void DcMotor::turnRight()
     {
         digitalWrite(m_pin1, HIGH);
         digitalWrite(m_pin2, LOW);
+        m_state = true;
     }
 }
 
@@ -57,6 +60,7 @@ void DcMotor::turnLeft()
     {
         digitalWrite(m_pin1, LOW);
         digitalWrite(m_pin2, HIGH);
+        m_state = true;
     }
 }
 
@@ -66,6 +70,7 @@ void DcMotor::turnOn()
     if (m_monoPin) 
     {
         digitalWrite(m_pin1, HIGH);
+        m_state = true;
     }    
 }
 
@@ -76,7 +81,14 @@ void DcMotor::turnOff()
     if (!m_monoPin)
     {
         digitalWrite(m_pin2, LOW);
+        m_state = false;
     }    
+}
+
+//Return true if the Motor is working, else false
+DcMotor::isWorking()
+{
+    return m_state;
 }
 
 //Generate an instance of Tire class,
