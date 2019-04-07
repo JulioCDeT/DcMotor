@@ -1,0 +1,51 @@
+#########################
+
+#
+
+######## Classes #########
+#
+
+
+#########################
+
+
+DcMotor	KEYWORD1
+
+
+
+
+Tire	KEYWORD1
+
+
+
+
+#########################
+#
+
+###### Methods #########
+##
+
+##########################
+
+
+turnRight	KEYWORD2
+
+
+
+
+turnLeft	KEYWORD2
+
+
+
+
+turnOn	KEYWORD2
+
+
+turnOff	KEYWORD2
+
+moveForward	KEYWORD2
+
+
+
+
+moveBackward	KEYWORD2
