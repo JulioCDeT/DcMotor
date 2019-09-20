@@ -86,7 +86,7 @@ void DcMotor::turnOff()
 }
 
 //Return true if the Motor is working, else false
-DcMotor::isWorking()
+bool DcMotor::isWorking()
 {
     return m_state;
 }
